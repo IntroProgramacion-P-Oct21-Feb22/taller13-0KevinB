@@ -6,6 +6,7 @@
 package ejercicios;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -17,20 +18,24 @@ public class Ejercicio01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        double calificacion;
-        double promedio;
-        double suma = 0;
-        int numeroCalificaciones = 4;
-        for (int i = 0; i < numeroCalificaciones; i++) {
-            System.out.println("Ingrese calificación: \n");
-            calificacion = entrada.nextDouble();
-            suma = suma + calificacion;
+        try {
+            Scanner entrada = new Scanner(System.in);
+            double calificacion;
+            double promedio;
+            double suma = 0;
+            int numeroCalificaciones = 4;
+            for (int i = 0; i < numeroCalificaciones; i++) {
+                System.out.println("Ingrese calificación: \n");
+                calificacion = entrada.nextDouble();
+                suma = suma + calificacion;
+            }
+
+            promedio = suma / numeroCalificaciones;
+
+            System.out.printf("%.2f\n", promedio);
+        } catch (InputMismatchException e) {
+            System.out.printf("(InputMismatchException) Ocurrió una "
+                    + "excepción %s\n", e);
         }
-
-        promedio = suma / numeroCalificaciones;
-
-        System.out.printf("%.2f\n", promedio);
     }
-    
 }
