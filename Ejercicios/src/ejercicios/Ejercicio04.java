@@ -29,16 +29,19 @@ public class Ejercicio04 {
 
                 System.out.println("Cuantos sueldos quiere agregar al arreglo");
                 numeroDatosArreglo = entrada.nextInt();
-
+                if (numeroDatosArreglo < 0 || numeroDatosArreglo > 5) {
+                    throw new Exception("El numero de sueldos no puede ser negativo o mayor a 5");
+                }
                 arregloSueldos = new double[numeroDatosArreglo];
                 j = 0;
                 while (j < arregloSueldos.length) {
                     System.out.printf("agregue sueldo %d para usuario %d\n",
                             j, i);
                     sueldo = entrada.nextDouble();
-                    if (sueldo < 0 || sueldo > 5) {
-                        throw new Exception("El sueldo no puede ser negativo o mayor a 5");
+                    if (sueldo < 0 || sueldo > 1000) {
+                        throw new Exception("El sueldo no puede ser negativo o mayor a 1000");
                     }
+
                     arregloSueldos[j] = sueldo;
                     j = j + 1;
                 }
